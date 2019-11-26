@@ -1,0 +1,173 @@
+dart notes
+
+dart is
+static type - u need to specify type
+compile - aot and jit
+
+dart start with the main function and returns nothing
+
+Variable
+// built in library, core functions is define in a package
+// import 'dart:core'; // import library automatically for dart code
+
+main() {
+  var firstName =
+      "Jerwin"; // type inference dart automatically give this type dependes on the value
+  // firstName = 1; // error incompatible type
+  // you can assign variable using var or the using data types like String, Boolean,
+  String lastName = "Fernandez"; // cannot assign number
+
+  print(firstName + ' ' + lastName); // Jerwin Fernandez
+}
+
+dart:io Library
+
+import 'dart:io';
+
+main() {
+  stdout.writeln('What is your name?'); // get input from users
+  String name = stdin.readLineSync(); // save the input from users
+  print('My name is $name'); // print the inputted name by users
+}
+
+Comments
+
+// inline comments
+
+/*
+  multiple
+  line
+  comment
+*/
+
+/// documentation
+
+
+Data types
+There 2 types of programming language
+1. Strongly Typed Language/Static type language - The type of variable is known
+at compile time. Ex. Java and C++ and many more
+2. Dynamic Typed Language - The type of a variable is known at run time. Ex. Python and Javascript many more
+
+
+main() {
+  // in dart we have 5 basic data types
+  /*
+    int 
+    double 
+    String 
+    bool 
+    dynamic - we can change the value and data type at run time
+  */
+
+  int amount1 = 100;
+  var amount2 = 200;
+
+  print('Amount1 $amount1 | Amount2 $amount2');
+
+  double dAmount1 = 100.12;
+  var dAmount2 = 200.22;
+
+  print('Double1 $dAmount1 | Double2 $dAmount2');
+
+  String name1 = "Jerwin";
+  var name2 = "Calyn";
+
+  print('Name1 $name1 | Name2 $name2');
+
+  bool isTrue = true;
+  var isFalse = false;
+
+  print('Bool1 $isTrue | Bool2 $isFalse');
+
+  dynamic weakVariable = 100;
+  print('Dynamic var val = $weakVariable');
+
+  weakVariable = 'Dart';
+  print('Change type var val to $weakVariable');
+
+  weakVariable = null;
+  print('Change type var val to $weakVariable');
+}
+
+
+
+String Type Conversion Constant null
+
+main() {
+// We can assign a String type variable using the double qoutation or single qoutation mark "" ''
+
+// define using "" ''
+  var firstName = 'Jerwin';
+  var secondName = "Ivan";
+
+// escaping character using a backslash \
+  var escapeSingle = 'it\'s a me mario';
+  var escapeDouble = "\"Time is gold\"";
+
+// RAW string so these special string prevent to work \n \t \b
+  var rawString = r"\n rhis will be print at new line but it will failed";
+  var normalString = "\n this will be print at new line ";
+
+  print(rawString);
+  print(normalString);
+
+  // String Interpolation - to replace or add string value using variable from the string
+  var age = 35;
+  var str = 'My age is: $age';
+
+  print(str); // My age is 35
+
+  // MultiLine String using starting and ending ''' or """ and it retains the break spaces and white spaces
+  String multiLine = '''
+    This 
+    is 
+    a 
+    multi
+    line
+    string
+    age is    $age
+  ''';
+
+  print(multiLine);
+
+  // Type conversion
+  // String to int or int to String
+
+  // String to int using parse metjod of int object
+  // var one = int.parse('str'); // error format exception must be a string number
+  var one = int.parse('1');
+  print((one == '1')); // false coz int 1 != String 1
+  print((one == 1)); // true coz int 1 == int 1
+
+  // String to double
+  var onePointOne = double.parse('1.1');
+  assert(onePointOne == '1.1');
+
+  // int to String
+  String oneAsString = 1.toString();
+  assert(oneAsString == '1');
+
+  String piAsString = 3.1415.toStringAsFixed(2);
+  assert(piAsString == '3.15');
+  print(piAsString); // 3.14
+}
+
+
+// Constant = value cannot be change once assigned
+// constant variable must be initialize or assign a value
+main() {
+  const double PI = 3.14159;
+  const bool isMale = true;
+  const String firstName = 'Jerwin Ivan';
+  // const empty; // error since u need to assign a value to be a constant variable
+
+  print(PI);
+  print(isMale);
+  print(firstName);
+
+  // getting runTimeType = get data type while running those variable
+  print(PI.runtimeType);
+  print(isMale.runtimeType);
+  print(firstName.runtimeType);
+}
