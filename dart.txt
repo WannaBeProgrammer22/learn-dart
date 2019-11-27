@@ -171,3 +171,88 @@ main() {
   print(isMale.runtimeType);
   print(firstName.runtimeType);
 }
+
+
+void main() {
+  // Operators Math +, -, *, /
+
+  int num = 10 + 22;
+  num = num - 2;
+
+  print(num); // 20
+
+  num = num % 5;
+
+  print(num); // 0 print remainder
+
+  // Logic Operators/Relational == != >= <=
+  if (num == 0) {
+    print('Zero');
+  }
+
+  // Unary Operator
+  // shorthand += *= -= /=  (++ --) ++pre_increment post_increment++ or decrement
+  num = 100;
+  num += 2;
+
+  print(num); // 102
+
+  // Logical Operator && ||
+  if (true && true) {
+    // do this if two ocnditional is true run this
+  }
+
+  if (true || false) {
+    // if one condition is true even one is false run this
+  }
+}
+
+// Null aware operator
+// ?. ?? ??=
+
+class Num {
+  int num = null;
+  String name = 'Calyn';
+}
+
+main() {
+  var n = Num(); // create an object/ instance of class
+  int number;
+  String myName;
+
+  // if (n != null) {
+  //   number = n.num;
+  // }
+
+  // shortcut
+  number = n
+      ?.num; // if there is an object and if the object property is accessible or it is existing then assign
+
+  myName = n?.name ??
+      'Jerwin Ivan'; // this is like a ternary operator// if the .name is null thenn assign the jerwin ivan value
+
+  print(number); // print 10 since the instance n is not null
+  print(myName);
+
+  int num1;
+  int num2 = num1 ??=
+      10; // this will assign a default value. this will assign to num1 and num2 so their value now is 10
+
+  int num3 = 5;
+  int num4 = num3 ??=
+      15; // if the num has a default value then it will ignore this ??= operator so the default value is 5 and the num4 is 5
+
+  print(
+      'num 1 value ${num1}  num 2 value ${num2}'); // num 1 value 10  num 2 value 10
+  print(
+      'num 3 value ${num3}  num 4 value ${num4}'); // num 3 value 5  num 4 value 5
+
+  //  Using Ternary Operator shorthand for if else statement
+
+  bool isEmployed = false;
+
+  (isEmployed)
+      ? print('you are employed')
+      : print(
+          'you arent employed'); // since it is false condition it will print you arent employed
+}
